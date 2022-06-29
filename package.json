@@ -1,0 +1,25 @@
+{
+  "name": "hsoj",
+  "version": "1.0.0",
+  "description": "An OnlineJudge platform for HITSZ",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HITSZOJ/HSOJ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HITSZOJ/HSOJ/issues"
+  },
+  "homepage": "https://github.com/HITSZOJ/HSOJ#readme",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "express": "^4.18.1",
+    "ts-node": "^10.8.1"
+  }
+}
