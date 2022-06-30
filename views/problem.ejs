@@ -1,0 +1,84 @@
+<%- include('header') %>
+
+<div class="mdui-container-fluid">
+  <div class="mdui-container mdui-center" style="margin: 2em; max-width: fit-content;">
+    <div class="mdui-row">
+      <div class="mdui-col-xs-9">
+        <div
+          class="mdui-container mdui-card"
+          id="problem-content"
+        ></div>
+		</div>
+		<div class="mdui-col-xs-3"
+          style="position: sticky; top: 5em">
+        <div
+          class="mdui-container mdui-card"
+          id="problem-sidebar"
+        >
+            <div class="mdui-card-actions">
+              <div class="mdui-row">
+                <div class="mdui-col-xs-4">
+                  <a
+                    class="mdui-btn"
+                    href="/submissions/filter?problem_id=<%= problem.id %>"
+                  >
+                    <i class="mdui-icon material-icons">assignment</i>
+                    提交
+                  </a>
+                </div>
+                <div class="mdui-col-xs-4">
+                  <a
+                    class="mdui-btn"
+                    href="/submissions/filter?problem_id=<%= problem.id %>"
+                  >
+                    <i class="mdui-icon material-icons">done_all</i>
+                    题解
+                  </a>
+                </div>
+                <div class="mdui-col-xs-4">
+                  <a
+                    class="mdui-btn"
+                    href="/submissions/filter?problem_id=<%= problem.id %>"
+                  >
+                    <i class="mdui-icon material-icons">forum</i>
+                    讨论
+                  </a>
+                </div>
+              </div>
+            </div>
+	</div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    var description_url = "/api/problem_content/<%= problem.id %>";
+    $.get(description_url, function (data) {
+      if (data.success) {
+        var md = marked.parse(data.data);
+        $("#problem-content").html(md);
+        renderMathInElement($("#problem-content")[0], {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\[", right: "\\]", display: true },
+            { left: "\\(", right: "\\)", display: false },
+          ],
+          ignoredTags: [
+            "script",
+            "noscript",
+            "style",
+            "textarea",
+            "pre",
+            "code",
+          ],
+          ignoredClasses: ["nokatex"],
+        });
+      } else {
+        $("#problem-content").html(data.message);
+      }
+    });
+  </script>
+  <%- include('footer') %>
+</div>

@@ -1,0 +1,11 @@
+{
+	"id": 0,
+	"permission": 0,
+	"title": "A+B Problem",
+	"time_limit": 1,
+	"memory_limit": 256,
+	"difficulty": 0,
+	"tags": [
+		"math"
+	]
+}
