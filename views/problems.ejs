@@ -1,0 +1,19 @@
+<%- include('header') %>
+
+<div class="mdui-container-fluid">
+  <div
+    class="mdui-container mdui-center"
+    style="margin: 2em; max-width: fit-content"
+  >
+    <ul class="mdui-list">
+      <% for(i in problems) { %>
+      <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons">check</i>
+        <a href="/problem/<%= problems[i].id %>"> <%= problems[i].title %> </a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>
+
+<%- include('footer') %>

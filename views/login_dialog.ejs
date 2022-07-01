@@ -1,0 +1,77 @@
+<div
+  class="mdui-dialog hsoj-login-dialog"
+  id="login-dialog"
+  style="display: none"
+>
+  <button class="mdui-btn mdui-btn-icon" mdui-dialog-close>
+    <i class="mdui-icon material-icons">close</i>
+  </button>
+  <div class="mdui-dialog-title mdui-color-theme">登录</div>
+  <div class="hsoj-dialog-form">
+    <div
+      class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom mdui-textfield-not-empty"
+    >
+      <label class="mdui-textfield-label">用户名或邮箱</label
+      ><input
+        class="mdui-textfield-input"
+        name="name"
+        type="text"
+        required=""
+        id="username"
+      />
+      <div class="mdui-textfield-error">账号不能为空</div>
+    </div>
+    <div
+      class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom mdui-textfield-not-empty"
+      id="mdui-textfield-password"
+    >
+      <label class="mdui-textfield-label">密码</label
+      ><input
+        class="mdui-textfield-input"
+        name="password"
+        type="password"
+        required=""
+        id="password"
+      />
+      <div class="mdui-textfield-error" id="password-error">密码不能为空</div>
+    </div>
+    <!-- <div
+      class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom captcha-field mdui-hidden"
+    >
+      <label class="mdui-textfield-label">图形验证码</label
+      ><input
+        class="mdui-textfield-input"
+        name="captcha_code"
+        type="text"
+        autocomplete="off"
+      />
+      <div class="mdui-textfield-error">请输入图形验证码</div>
+      <img class="captcha-image" src="" title="点击刷新验证码" />
+    </div> -->
+    <div class="actions mdui-clearfix">
+      <!-- <button
+        class="mdui-btn mdui-ripple more-option"
+        type="button"
+        mdui-menu="{target: '#mc-login-menu', position: 'top', covered: true}"
+      >
+        更多选项<i class="mdui-icon material-icons mdui-text-color-theme-icon"
+          >arrow_drop_down</i
+        >
+      </button>
+      <ul
+        class="mdui-menu"
+        id="mc-login-menu"
+        style="transform-origin: 0px 100% 0px; position: fixed"
+      >
+        <li class="mdui-menu-item"><a class="mdui-ripple">忘记密码</a></li>
+        <li class="mdui-menu-item"><a class="mdui-ripple">创建新账号</a></li>
+      </ul> -->
+      <button
+        class="mdui-btn mdui-btn-raised mdui-color-theme action-btn"
+        onclick="login()"
+      >
+        登录
+      </button>
+    </div>
+  </div>
+</div>

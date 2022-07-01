@@ -1,0 +1,98 @@
+.hsoj-login-dialog {
+  max-width: 448px;
+  overflow-y: auto;
+}
+.hsoj-login-dialog .arrow_back,
+.hsoj-login-dialog .close {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: block;
+  color: #fff;
+}
+.hsoj-login-dialog .avatar {
+  position: absolute;
+  top: 40px;
+  left: 36px;
+  display: block;
+  color: hsla(0, 0%, 100%, 0.56);
+  font-size: 76px;
+}
+.hsoj-login-dialog .mdui-dialog-title {
+  margin-bottom: 24px;
+  padding: 146px 40px 28px;
+  color: #fff;
+}
+.mdui-theme-layout-dark .hsoj-login-dialog .mdui-dialog-title {
+  background-color: #303030;
+}
+.hsoj-login-dialog .hsoj-dialog-form {
+  padding: 0 40px 62px;
+}
+.hsoj-login-dialog .more-option {
+  margin-left: -16px;
+}
+.hsoj-login-dialog .captcha-field {
+  margin-right: 116px;
+  overflow: visible;
+}
+.hsoj-login-dialog .captcha-image {
+  position: absolute;
+  right: -116px;
+  bottom: 29px;
+  cursor: pointer;
+}
+.hsoj-login-dialog .send-email-field {
+  margin-right: 116px;
+  overflow: visible;
+}
+.hsoj-login-dialog .send-email {
+  position: absolute;
+  right: -116px;
+  bottom: 29px;
+}
+.hsoj-login-dialog .actions {
+  margin-top: 24px;
+}
+.hsoj-login-dialog .action-btn {
+  float: right;
+}
+.mdui-theme-layout-dark .hsoj-login-dialog .action-btn {
+  background-color: #525252 !important;
+}
+@media (max-width: 599.9px) {
+  .hsoj-login-dialog {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    max-height: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  .hsoj-login-dialog .back,
+  .hsoj-login-dialog .close {
+    top: 10px;
+    left: 8px;
+  }
+  .hsoj-login-dialog .avatar {
+    display: none;
+  }
+  .hsoj-login-dialog .mdui-dialog-title {
+    padding: 10px 16px 10px 52px;
+    line-height: 36px;
+  }
+  .hsoj-login-dialog .hsoj-dialog-form {
+    padding: 0 24px 24px;
+  }
+  .hsoj-login-dialog .hsoj-dialog-form .mdui-textfield {
+    padding-top: 4px;
+  }
+  .hsoj-login-dialog .actions {
+    margin-top: 14px;
+  }
+}

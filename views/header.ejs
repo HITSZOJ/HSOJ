@@ -1,72 +1,115 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <!-- MDUI CSS -->
+    <link
+      rel="stylesheet"
+      href="/css/mdui.min.css"
+      integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+      crossorigin="anonymous"
+    />
+    <!-- MDUI JavaScript -->
+    <script
+      src="/js/mdui.min.js"
+      integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-<head>
-	<meta charset="utf-8"/>
-	<!-- MDUI CSS -->
-	<link rel="stylesheet" href="/css/mdui.min.css"
-		integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous" />
-	<!-- MDUI JavaScript -->
-	<script src="/js/mdui.min.js"
-		integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
-		crossorigin="anonymous">
-	</script>
-	<script src="/js/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="/css/katex.min.css"
+      integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"
+      crossorigin="anonymous"
+    />
 
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+    <script
+      defer
+      src="/js/katex.min.js"
+      integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
+    <script
+      defer
+      src="/js/auto-render.min.js"
+      integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
 
-</head>
+	<link rel="stylesheet" href="/css/hsoj.css" />
+  <script src="/js/hsoj.js"></script>
+  </head>
 
-<body
-	class='mdui-theme-primary-indigo mdui-theme-accent-pink mdui-drawer-body-left mdui-theme-layout-auto mdui-appbar-with-toolbar'>
-		<div class="mdui-appbar mdui-appbar-fixed">
-			<div class="mdui-toolbar mdui-color-theme">
-				<a class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#drawer'}">
-					<i class="mdui-icon material-icons">menu</i>
-				</a>
-				<a class="mdui-typo-headline">Home</a>
-				<div class="mdui-toolbar-spacer"></div>
-			</div>
-		</div>
-	<div id="drawer" class='mdui-drawer'>
-		<div class='mdui-list'>
-				<a href="/" class="mdui-list-item">
-					<i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-					<div class="mdui-list-item-content">
-						首页
-					</div>
-				</a>
-				<a href="/problems" class="mdui-list-item">
-					<i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-					<div class="mdui-list-item-content">
-						题库
-					</div>
-				</a>
-				<a href="/submissions" class="mdui-list-item">
-					<i class="mdui-list-item-icon mdui-icon material-icons">assignment</i>
-					<div class="mdui-list-item-content">
-						提交记录
-					</div>
-				</a>
-				<a href="/contests" class="mdui-list-item">
-					<i class="mdui-list-item-icon mdui-icon material-icons">golf_course</i>
-					<div class="mdui-list-item-content">
-						比赛
-					</div>
-				</a>
-				<a href="/discussions" class="mdui-list-item">
-					<i class="mdui-list-item-icon mdui-icon material-icons">forum</i>
-					<div class="mdui-list-item-content">
-						讨论
-					</div>
-				</a>
-		</div>
-	</div>
+  <body
+    class="mdui-theme-accent-pink mdui-drawer-body-left mdui-theme-layout-dark mdui-appbar-with-toolbar"
+  >
+    <div class="mdui-appbar mdui-appbar-fixed">
+      <div class="mdui-toolbar mdui-color-theme">
+        <a class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#drawer'}">
+          <i class="mdui-icon material-icons">menu</i>
+        </a>
+        <a class="mdui-typo-headline">Home</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <% if (!user) { %>
+        <div
+          class="mdui-btn mdui-btn-dense"
+          mdui-dialog="{target: '#login-dialog'}"
+        >
+          登录
+        </div>
+        <div class="mdui-btn mdui-btn-dense" href="/">注册</div>
+
+        <div class="mdui-dialog" id="example-Dialog">
+          <div class="mdui-dialog-title">Are you sure?</div>
+          <div class="mdui-dialog-content">
+            You'll lose all photos and media!
+          </div>
+          <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>
+              cancel
+            </button>
+            <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>
+              erase
+            </button>
+          </div>
+        </div>
+
+		<% } %>
+		<% if (user) { %>
+		<a class="mdui-btn mdui-btn-dense" href="/logout">登出</a>
+		<% } %>
+      </div>
+    </div>
+    <div id="drawer" class="mdui-drawer">
+      <div class="mdui-list">
+        <a href="/" class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+          <div class="mdui-list-item-content">首页</div>
+        </a>
+        <a href="/problems" class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+          <div class="mdui-list-item-content">题库</div>
+        </a>
+        <a href="/submissions" class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons">assignment</i>
+          <div class="mdui-list-item-content">提交记录</div>
+        </a>
+        <a href="/contests" class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons"
+            >golf_course</i
+          >
+          <div class="mdui-list-item-content">比赛</div>
+        </a>
+        <a href="/discussions" class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons">forum</i>
+          <div class="mdui-list-item-content">讨论</div>
+        </a>
+      </div>
+    </div>
+	<%- include('login_dialog') %> 

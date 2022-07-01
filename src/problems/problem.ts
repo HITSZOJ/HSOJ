@@ -60,6 +60,16 @@ class ProblemManager {
 			return new Problem(null);
 		}
 	}
+	getProblemBriefListByPermission(permission: number): Array<ProblemBrief> {
+		let problemList: Array<ProblemBrief> = new Array<ProblemBrief>();
+		this.src_list.forEach((problem_dir, id) => {
+			let problem = this.getProblem(id);
+			if(problem.permission <= permission) {
+				problemList.push(problem.getBrief());
+			}
+		});
+		return problemList;
+	}
 }
 
 class Problem {
@@ -94,6 +104,19 @@ class Problem {
 		this.permission = permission;
 		this.tags = tags;
 	}
+
+	getBrief(): ProblemBrief {
+		return new ProblemBrief(this.id, this.title);
+	}
 }
 
-export default ProblemManager;
+class ProblemBrief {
+	id: number;
+	title: string;
+	constructor(id: number, title: string) {
+		this.id = id;
+		this.title = title;
+	}
+}
+
+export default new ProblemManager();
