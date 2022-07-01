@@ -1,16 +1,24 @@
 import config from '../config/config';
 import db from '../database/database';
+import crypto from 'crypto';
 
 export class User {
 	id: number;
 	username: string;
 	password: string;
+	email: string;
 	permission: number;
-	constructor(id: number, username: string, password: string, permission: number) {
+
+	gravatar_hash: string;
+	constructor(id: number, username: string, password: string, email: string, permission: number) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.email = email;
 		this.permission = permission;
+
+		this.gravatar_hash = crypto.createHash('md5').update(email.trim().toLowerCase()).digest('hex');
+		console.log(this.gravatar_hash);
 	}
 }
 
@@ -29,7 +37,7 @@ class UserManager {
 				callback(null);
 				return;
 			}
-			let user = new User(results[0].id, results[0].username, results[0].password, results[0].permission);
+			let user = new User(results[0].id, results[0].username, results[0].password, results[0].email, results[0].permission);
 			callback(user);
 			return;
 		});
@@ -46,7 +54,7 @@ class UserManager {
 				callback(null);
 				return;
 			}
-			let user = new User(results[0].id, results[0].username, results[0].password, results[0].permission);
+			let user = new User(results[0].id, results[0].username, results[0].password, results[0].email, results[0].permission);
 			callback(user);
 			return;
 		});

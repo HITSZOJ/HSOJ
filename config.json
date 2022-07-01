@@ -1,4 +1,48 @@
 {
+	"judger": {
+		"workspace": "./judger/workspace",
+		"args": [
+			"./judger/yaoj-judger",
+			"--log=${name}.log",
+			"${input}",
+			"${output}",
+			"/dev/null",
+			"${name}.local",
+			"-j general",
+			"-p builtin:_coverage_general_strict",
+			"-t ${time_limit}",
+			"-m ${memory_limit}",
+			"-g ${output_limit}",
+			"--json"
+		],
+		"compilers": [
+			{
+				"name": "c",
+				"args": [
+					"gcc",
+					"-o",
+					"${name}.local",
+					"${name}.c",
+					"-lm",
+					"-Wall",
+					"-DONLINE_JUDGE"
+				]
+			},
+			{
+				"name": "c++",
+				"args": [
+					"g++",
+					"-o",
+					"${name}.local",
+					"${name}.cpp",
+					"-std=c++11",
+					"-O2",
+					"-Wall",
+					"-DONLINE_JUDGE"
+				]
+			}
+		]
+	},
 	"secret": "secret",
 	"db": {
 		"host": "localhost",

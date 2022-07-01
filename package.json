@@ -27,9 +27,13 @@
     "ts-node": "^10.8.1"
   },
   "devDependencies": {
+    "@types/diff": "^5.0.2",
+    "@types/express-form-data": "^2.0.2",
     "@types/express-mysql-session": "^2.1.3",
     "@types/express-session": "^1.17.4",
     "@types/mysql": "^2.15.21",
+    "diff": "^5.1.0",
+    "express-form-data": "^2.0.18",
     "express-mysql-session": "^2.1.8",
     "mysql-async-wrapper": "^2.0.1",
     "mysql2": "^2.3.3"
