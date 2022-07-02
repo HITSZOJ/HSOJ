@@ -1,0 +1,78 @@
+<%- include('header') %>
+
+<div class="mdui-container-fluid">
+  <div class="mdui-container mdui-center" style="margin: 2em; max-width: 1280px;">
+    <div class="mdui-row">
+      <div class="mdui-col-xs-8">
+        <div class="mdui-container mdui-card" id="submission-content">
+          <div class="mdui-tab" mdui-tab>
+            <a href="#testcase" class="mdui-ripple">评测点信息</a>
+            <a href="#code" class="mdui-ripple">源代码</a>
+          </div>
+          <div id="testcase" class="mdui-p-a-2">
+            <div class="mdui-typo-headline">本题状态：<%= SubmissionStatus[submission.status] %></div>
+            <hr>
+            <div class="mdui-row mdui-row-gapless">
+              <% if(!submission.detail || !submission.detail.results) { %>
+              <div class="mdui-typo-display-1">无测试点信息</div>
+              <% } else { %>
+              <% for(let testcase of submission.detail.results) { %>
+                <%- include('testcase', {testcase: testcase, SubmissionStatus: SubmissionStatus, color: color}) %>
+              <% } %>
+              <% } %>
+              <% if(submission.detail.error) { %>
+              <pre>
+                <%= submission.detail.error %>
+              </pre>
+              <% } %>
+            </div>
+          </div>
+          <div id="code" class="mdui-p-a-2">
+            <% if(!submission.detail || !submission.detail.code) { %>
+            <div class="mdui-typo-display-1">暂无源代码</div>
+            <% } else { %>
+            <pre><code class="language-cpp"><%= submission.detail.code %></code></pre>
+            <% } %>
+          </div>
+          <!-- <div class="mdui-typo">
+            <p><%= submission.id %></p>
+			<p><%= submission.problem_id %></p>
+			<p><%= submission.user_id %></p>
+			<p><%= submission.language %></p>
+			<p><%= submission.status %></p>
+			<p><%= submission.score %></p>
+			<p><%= submission.time %></p>
+    </div> -->
+        </div>
+      </div>
+      <div class="mdui-col-xs-4" style="position: sticky; top: 5em">
+        <div class="mdui-container mdui-card" id="submission-sidebar">
+          <div class="mdui-card-actions">
+            <div class="mdui-row">
+              <div class="mdui-col-xs-4">
+                <a class="mdui-btn" href="/submissions/filter?problem_id=<%= submission.problem_id %>">
+                  <i class="mdui-icon material-icons">assignment</i>
+                  记录
+                </a>
+              </div>
+              <div class="mdui-col-xs-4">
+                <a class="mdui-btn" href="/submissions/filter?problem_id=<%= submission.problem_id %>">
+                  <i class="mdui-icon material-icons">done_all</i>
+                  题解
+                </a>
+              </div>
+              <div class="mdui-col-xs-4">
+                <a class="mdui-btn" href="/submissions/filter?problem_id=<%= submission.problem_id %>">
+                  <i class="mdui-icon material-icons">forum</i>
+                  讨论
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>

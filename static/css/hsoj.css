@@ -1,5 +1,5 @@
 .mdui-container {
-  max-width: 100vh;
+  /* max-width: 100vh; */
 }
 
 
@@ -186,4 +186,28 @@
 }
 .avatar .popover .personal {
   margin-left: 16px;
+}
+
+.mdui-card .hsoj-testcase{
+  width: 7em;
+  height: 7em;
+}
+
+.hsoj-testcase .mdui-color-green{
+  color: white !important;
+}
+
+.hsoj-index-headline strong {
+  color: #03a9f4;
+}
+
+.hsoj-index .icon {
+	display: block;
+	width: 56px;
+	height: 56px;
+	margin: 0 auto 20px;
+}
+
+.hsoj-index svg {
+  fill: white;
 }

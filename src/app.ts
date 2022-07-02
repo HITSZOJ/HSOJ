@@ -13,7 +13,7 @@ import submissionManager, {
 } from "./submission/submission";
 import judger from "./judger/judger";
 import fs from "fs";
-import { readStream } from "./utils/utils";
+import { readStream, submissionStatusColor } from "./utils/utils";
 
 const app: express.Application = express();
 const ExpressMySqlStoreSession = expressMySqlSession(session);
@@ -139,6 +139,7 @@ app.get(
       submission: submission,
       user: req.session.user,
       SubmissionStatus: SubmissionStatus,
+      color: submissionStatusColor
     });
     return;
   }

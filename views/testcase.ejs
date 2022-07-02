@@ -1,0 +1,13 @@
+<div class="mdui-col-lg-2 mdui-col-md-3 mdui-col-sm-4">
+  <div class="mdui-card hsoj-testcase mdui-m-a-1 mdui-hoverable">
+    <div class="mdui-color-<%= color[testcase.status] %>" style="height: inherit;">
+      <div class="mdui-card-content">
+        <div class="mdui-typo-headline" style="text-align: center;">
+          <%= SubmissionStatus[testcase.status] %>
+        </div>
+		<div class="mdui-typo-caption" style="text-align: center;"><%= testcase.real_time %>ms</div>
+		<div class="mdui-typo-caption" style="text-align: center;"><%= (testcase.memory / 1024 / 1024).toFixed(3) %>MB</div>
+      </div>
+    </div>
+  </div>
+</div>

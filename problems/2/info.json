@@ -1,0 +1,17 @@
+{
+	"id": 2,
+	"permission": 0,
+	"title": "次小生成树",
+	"time_limit": 1000,
+	"memory_limit": 512,
+	"difficulty": 1,
+	"tags": [
+		"MST",
+		"LCA"
+	],
+	"judge": {
+		"type": "general",
+		"testcase": 11,
+		"prefix": "tree"
+	}
+}

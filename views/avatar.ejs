@@ -1,0 +1,41 @@
+<div class="avatar">
+  <div
+    class="user mdui-btn mdui-btn-icon mdui-btn-dense"
+    title="<%= user.username %>"
+	mdui-menu="{ target: '#appbar-avatar-popover'}"
+  >
+      <img class="hsoj-avatar" src="https://www.gravatar.com/avatar/<%= user.gravatar_hash %>" />
+  </div>
+  <div
+    class="popover mdui-menu"
+    id="appbar-avatar-popover"
+    style="
+      transform-origin: 100% 0px 0px;
+      position: fixed;
+      top: 49px;
+      left: 1551px;
+    "
+  >
+    <div class="info">
+      <div class="avatar-box">
+      <img src="https://www.gravatar.com/avatar/<%= user.gravatar_hash %>" />
+      </div>
+      <div class="username"><%= user.username %></div>
+      <div class="email mdui-text-color-theme-secondary"><%= user.email %></div>
+      <button
+        class="personal mdui-btn mdui-btn-dense mdui-btn-outlined mdui-color-theme mdui-ripple"
+      >
+        个人资料
+      </button>
+    </div>
+    <div class="bottom">
+      <div class="mdui-toolbar-spacer"></div>
+      <a
+        class="mdui-btn mdui-btn-dense mdui-btn-outlined mdui-color-theme mdui-ripple"
+		href="/logout"
+      >
+		登出
+	</a>
+    </div>
+  </div>
+</div>

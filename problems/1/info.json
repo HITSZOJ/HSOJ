@@ -10,6 +10,7 @@
 	],
 	"judge": {
 		"type": "general",
-		"testcase": 2
+		"testcase": 2,
+		"prefix": ""
 	}
 }

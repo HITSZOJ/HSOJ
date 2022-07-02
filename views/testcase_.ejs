@@ -1,0 +1,18 @@
+<div class="mdui-col-xs-2">
+	<% switch (testcase.status) {
+		case SubmissionStatus.AC: %>
+<div class="mdui-color-green">
+		<%	break;
+		case SubmissionStatus.WA: %>
+<div class="mdui-color-red">
+		<%	break;
+		default: %>
+<div class="mdui-color-grey-300">
+		<%	break;
+	} %>
+<div class="mdui-card">
+<div class="hsoj-testcase">
+</div>
+</div>
+</div>
+</div>
