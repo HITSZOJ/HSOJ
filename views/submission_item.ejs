@@ -1,0 +1,27 @@
+<li class="mdui-list-item mdui-ripple">
+	<div class="mdui-row" style="width: 100%;">
+		<div class="mdui-col-xs-4">
+			<div class="mdui-row">
+				<div class="mdui-col-xs-6">
+					<div class="mdui-chip">
+						<img class="mdui-chip-icon" src="https://www.gravatar.com/avatar/<%= user.gravatar_hash %>"></img>
+						<span class="mdui-chip-title"><%= user.username %></span>
+					</div>
+				</div>
+				<div class="mdui-col-xs-6">
+					<div class="mdui-chip mdui-color-<%= Color[submission.status] %>">
+						<span class="mdui-chip-icon"><%= submission.score %></span>
+						<!-- <div class="mdui-chip-icon" href="/submission/<%= submission.id %>"><%= submission.score %></div> -->
+						<a class="mdui-chip-title" href="/submission/<%= submission.id %>"><%= Status[submission.status]%></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdui-col-xs-4">
+			<a href="/problem/<%= problem.id %>"><%= problem.title %></a>
+		</div>
+		<div class="mdui-col-xs-4">
+			<%= submission.time.toLocaleString() %>
+		</div>
+	</div>
+</li>

@@ -2,7 +2,7 @@ import os from "os";
 import express from "express";
 import formData from "express-form-data";
 import config from "./config/config";
-import problemManager from "./problem/problem";
+import problemManager, { Problem, ProblemBrief } from "./problem/problem";
 import { User, userManager } from "./user/user";
 import * as session from "express-session";
 import expressMySqlSession from "express-mysql-session";
@@ -114,6 +114,29 @@ app.get("/problem/:id", (req: express.Request, res: express.Response) => {
   res.render("problem", { problem: problem, user: req.session.user });
   return;
 });
+
+
+app.get(
+  "/submissions",
+  async (req: express.Request, res: express.Response) => {
+    let user = req.session.user;
+    if(!user) {
+      res.render("error", {
+        message: "You are not logged in",
+        user: user
+      });
+      return;
+    }
+    let submissions = await submissionManager.getSubmissionsByUserId(user.id);
+    let problems = new Array<ProblemBrief>();
+    submissions.forEach(submission => {
+      let problem = problemManager.getProblem(submission.problem_id);
+      problems.push(problem.getBrief());
+    });
+    res.render("submissions", { submissions: submissions, problems: problems, user: user, Status: SubmissionStatus, Color: submissionStatusColor });
+  }
+);
+
 
 app.get(
   "/submission/:id",

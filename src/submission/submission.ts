@@ -124,6 +124,18 @@ class SubmissionManager {
 		return;
 	}
 
+	async getSubmissionsByUserId(user_id: number): Promise<Array<Submission>> {
+		let res = (await db.query(`SELECT * FROM submissions WHERE user_id = ? ORDER BY time DESC`, [user_id]))[0];
+		if(!res || res.length == 0) {
+			return [];
+		}
+		let submissions: Array<Submission> = [];
+		for(let i = 0; i < res.length; i++) {
+			submissions.push(new Submission(res[i].id, res[i].problem_id, res[i].user_id, res[i].language, res[i].status, res[i].score, res[i].time, new SubmissionDetail(res[i].detail)));
+		}
+		return submissions;
+	}
+
 }
 
 export let submissionManager = new SubmissionManager();

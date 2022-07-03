@@ -63,5 +63,5 @@ export const submissionStatusColor = {
 	6: 'yellow', // CE
 	7: 'yellow', // JE
 	8: 'brown', // UE
-	9: 'brown', // Pending
+	233: 'light-blue', // Pending
 }
