@@ -278,7 +278,7 @@ app.post("/api/submit", async (req: express.Request, res: express.Response) => {
   return;
 });
 
-app.post("/login", (req: express.Request, res: express.Response) => {
+app.post("/login", async (req: express.Request, res: express.Response) => {
   let username: string = req.body.username;
   let password: string = req.body.password;
   if (!username || !password) {
@@ -286,21 +286,20 @@ app.post("/login", (req: express.Request, res: express.Response) => {
     res.json({ success: false, message: "Invalid username or password" });
     return;
   }
-  let user = userManager.getUserByUsername(username, (user: User | null) => {
-    if (!user) {
-      console.log("Invalid username");
-      res.json({ success: false, message: "Invalid username" });
-      return;
-    }
-    if (user.password !== password) {
-      console.log("Invalid password");
-      res.json({ success: false, message: "Wrong password" });
-      return;
-    }
-    console.log(`User ${username} logged in`);
-    req.session.user = user;
-    res.json({ success: true });
-  });
+  let user = await userManager.getUserByUsername(username);
+  if (!user) {
+    console.log("Invalid username");
+    res.json({ success: false, message: "Invalid username" });
+    return;
+  }
+  if (user.password !== password) {
+    console.log("Invalid password");
+    res.json({ success: false, message: "Wrong password" });
+    return;
+  }
+  console.log(`User ${username} logged in`);
+  req.session.user = user;
+  res.json({ success: true });
   return;
 });
 

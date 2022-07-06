@@ -1,5 +1,5 @@
 import config from '../config/config';
-import db from '../database/database';
+import db from '../adatabase/database';
 import crypto from 'crypto';
 
 export class User {
@@ -23,42 +23,25 @@ export class User {
 }
 
 class UserManager {
-	getUserById(id: number, callback: (user: User | null) => void): void {
+	async getUserById(id: number): Promise<User | null> {
 		if(id === NaN) {
-			return;
+			return null;
 		}
-		db.query('SELECT * FROM users WHERE id = ?', [id], (err, results) => {
-			if(err) {
-				console.log(err);
-				callback(null);
-				return;
-			}
-			if(results.length === 0) {
-				callback(null);
-				return;
-			}
-			let user = new User(results[0].id, results[0].username, results[0].password, results[0].email, results[0].permission);
-			callback(user);
-			return;
-		});
-		return;
+		let res = (await db.query('SELECT * FROM users WHERE id = ?', [id]))[0];
+		if(!res || res.length == 0) {
+			return null;
+		}
+		return new User(res[0].id, res[0].username, res[0].password, res[0].email, res[0].permission);
 	}
-	getUserByUsername(username: string, callback: (user: User | null) => void): void {
-		db.query('SELECT * FROM users WHERE username = ?', [username], (err, results) => {
-			if(err) {
-				console.log(err);
-				callback(null);
-				return;
-			}
-			if(results.length === 0) {
-				callback(null);
-				return;
-			}
-			let user = new User(results[0].id, results[0].username, results[0].password, results[0].email, results[0].permission);
-			callback(user);
-			return;
-		});
-		return;
+	async getUserByUsername(username: string): Promise<User | null> {
+		if(username === '') {
+			return null;
+		}
+		let res = (await db.query('SELECT * FROM users WHERE username = ?', [username]))[0];
+		if(!res || res.length == 0) {
+			return null;
+		}
+		return new User(res[0].id, res[0].username, res[0].password, res[0].email, res[0].permission);
 	}
 }
 
