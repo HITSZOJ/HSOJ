@@ -338,7 +338,9 @@ app.use(
   }
 );
 
+let port = 80;
+
 // Start server
-app.listen(80, () => {
-  console.log("Example app listening on port 3000!");
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`);
 });
